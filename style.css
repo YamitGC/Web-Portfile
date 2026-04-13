@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root{
+    --color-home: #212121 ;
+    --color-projects: #272727;
+    --color-h1-home: #858585;
+    --color-p-home: white;
+}
+
+#name{
+    color: white;
+}
+
+header{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10%;
+    position: fixed;
+}
+
+ul{
+    
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+ul li a{
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+
+}
+
+#home{
+    background-color: var(--color-home);
+    text-align: center;
+    padding: 15% 35% 19% 35%;
+}
+
+#home h1{
+    color: var(--color-h1-home);
+    text-align: left;
+    font-size: 20px;
+}
+
+#home p{
+    color:var(--color-p-home);
+    font-size: 40px;
+    text-align:start;
+}
+
+
+#projects{
+    background-color: var(--color-projects);
+    text-align: center;
+    padding: 0% 0% 10% 0%;
+}
+
+#projects h2{
+    color: var(--color-h1-home);
+    font-size: 100px;
+    padding: 10% 0% 5%;
+}
+
+#projects p{
+    color: white;
+    padding: 0% 0% 5% 0%;
+    font-size: 35px;
+    text-align:center;
+}
+
+.contenedor-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card{
+    background: var(--color-home);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 300px;
+    flex-grow: 1;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Evita que la imagen se estire feo */
+}
+
+.contenido-card{
+    color: #fcfcfc;
+    padding: clamp(15px, 3vw, 25px); 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contenido-card h3{
+    font-size: xx-large;
+    padding: 0% 0% 15%;
+}
+
+
+.contenido-card button{
+    background-color: #d1d1d1;
+    border: none;
+    padding: 0px 10px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all ease-in 0.2s;
+}
+
+.contenido-card button a{
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 600;
+    color: rgb(19, 19, 19);
+}
+
+.contenido-card button:hover{
+    background-color: #fcfcfc;
+}
+
+.card {
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Se eleva un poquito al pasar el mouse */
+}
