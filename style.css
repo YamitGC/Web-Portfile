@@ -157,9 +157,11 @@ ul li a {
   transform: translateY(-10px); /* Se eleva un poquito al pasar el mouse */
 }
 
+
+
 /* ===== FOOTER ===== */
 footer {
-  background-color: var(--color-home);
+  background-color:var(--color-home);
   color: #ccc;
   padding: 48px 60px 0 60px;
   display: flex;
@@ -176,13 +178,13 @@ footer section:first-of-type {
 
 footer section:first-of-type h2 {
   color: #f0ead6;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   margin: 0 0 10px 0;
 }
 
 footer section:first-of-type p {
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   color: #f0ad4e;
   margin: 0 0 16px 0;
@@ -196,7 +198,7 @@ footer section:first-of-type nav {
 footer section:first-of-type nav a {
   color: #ccc;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 footer section:first-of-type nav a:hover {
