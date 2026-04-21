@@ -19,7 +19,7 @@
     color: white;
 }
 
-header {
+#header-portfolio {
     left: 0;
     top: 0;
     width: 100%;
@@ -31,13 +31,13 @@ header {
     position: fixed;
 }
 
-ul {
+#ul-portfolio {
     list-style: none;
     display: flex;
     gap: 25px;
 }
 
-ul li a {
+#ul-portfolio li a {
     font-weight: 600;
     text-decoration: none;
     color: white;
@@ -80,6 +80,7 @@ ul li a {
 #projects h2 {
     color: var(--color-titles);
     font-size: 100px;
+    padding: 3%;
 }
 
 #projects p {
@@ -96,7 +97,7 @@ ul li a {
     padding: 20px;
     grid-auto-flow: column;
     justify-content: center;
-    align-items: baseline;
+    align-items:stretch;
 }
 
 .card {
@@ -158,7 +159,7 @@ ul li a {
 }
 
 /* ===== FOOTER ===== */
-footer {
+#footer-portfolio {
   background-color:var(--color-home);
   color: #ccc;
   padding: 48px 60px 0 60px;
@@ -278,4 +279,117 @@ footer section:first-of-type nav a:hover {
   color: #666;
   font-size: 0.8rem;
   margin: 0;
+}
+
+/* CSS para el archivo "pets" */
+
+#header-mascotas {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color:crimson;
+  align-items: center;
+  padding: 0px 10%;
+  position: fixed;
+  color: white;
+}
+
+#ul-mascotas {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+#ul-mascotas li a {
+  font-weight: 600;
+  text-decoration: none;
+  align-items: end;
+  color: white;
+}
+
+#home-mascotas {
+  /* background-image: url(/assets/fondo.jpg); */
+  background-color:bisque;
+  display: flex;
+  height: 100dvh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content:center;
+  padding: 0 30% 0 ;
+}
+
+#home-mascotas h1{
+  font-size: 80px;
+  margin: 0 0 30%;
+  height: 35px;
+}
+
+#home-mascotas p {
+  font-size: 35px;
+  text-align:center;
+}
+
+#pets {
+  background-color:burlywood;
+  display: grid;
+  height: 100%;
+}
+
+#titulo-mascotas{
+  font-size: 100px;
+  text-align: center;
+  padding: 5% 0 5%;
+}
+
+.contenedor-cards-mascotas {
+  display: flex;          /* Activa el modo flexible */
+  flex-wrap: wrap;        /* Permite que bajen si no caben */
+  gap: 30px;              /* Espacio entre las cards */
+  justify-content: center; /* Centra las cards en la fila */
+  padding: 0 20% 5%;
+}
+
+.card-mascota {
+    background: var(--color-home);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(255, 0, 0);
+    overflow: hidden;
+    width: 300px;
+    max-width: 350px;
+}
+
+.card-mascota img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Evita que la imagen se estire feo */
+}
+
+.contenido-card-mascota {
+    color: #fcfcfc;
+    padding: clamp(15px, 3vw, 25px); 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contenido-card-mascota h2 {
+    font-size: xx-large;
+}
+
+.card-mascota {
+  transition: transform 0.4s ease;
+}
+
+.card-mascota:hover {
+  transform: translateY(-10px); /* Se eleva un poquito al pasar el mouse */
+}
+
+#footer-mascota {
+  background-color: burlywood;
+  text-align: center;
+  padding: 0 0 10px 0;
 }
