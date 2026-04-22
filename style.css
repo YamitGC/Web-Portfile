@@ -1,34 +1,85 @@
-* {
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*,
+*::before,
+*::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* variables para colores */
-
+/* =============================================
+   VARIABLES GLOBALES
+   ============================================= */
 :root {
-    --color-home: #212121 ;
+    /* Colores — portfolio */
+    --color-home: #212121;
     --color-projects: #272727;
     --color-titles: #858585;
+    --color-white: #fcfcfc;
+    --color-light: #f0ead6;
+    --color-muted: #ccc;
+    --color-border: #333;
+    --color-btn-bg: #d1d1d1;
+
+    /* Colores — mascotas */
+    --color-pets-header: crimson;
+    --color-pets-home: bisque;
+    --color-pets-section: burlywood;
+
+    /* Tipografía */
+    --font-base: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+                 'Lucida Sans', Arial, sans-serif;
+
+    /* Espaciado */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+
+    /* Radios */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+
+    /* Sombras */
+    --shadow-card: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-pets: 0 4px 8px rgb(255, 0, 0);
+
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-card: 0.4s ease;
+
+    /* Header */
+    --header-height: 60px;
 }
 
-/* conjuntos de selectores para el header */
-
-#name { 
-    color: white;
+/* =============================================
+   GLOBAL
+   ============================================= */
+body {
+    font-family: var(--font-base);
 }
 
+/* =============================================
+   HEADER — PORTFOLIO
+   ============================================= */
 #header-portfolio {
-    left: 0;
-    top: 0;
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     width: 100%;
-    height: 60px;
+    height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10%;
-    position: fixed;
+    padding: 0 10%;
+    z-index: 100;
+}
+
+#name {
+    color: var(--color-white);
 }
 
 #ul-portfolio {
@@ -40,356 +91,475 @@
 #ul-portfolio li a {
     font-weight: 600;
     text-decoration: none;
-    color: white;
-
+    color: var(--color-white);
+    transition: color var(--transition-fast);
 }
 
-/* conjunto de selectores para la parte de 'sobre mi' */
+#ul-portfolio li a:hover {
+    color: var(--color-muted);
+}
 
+/* =============================================
+   SECCIÓN HOME
+   ============================================= */
 #home {
     background-color: var(--color-home);
     display: flex;
-    height: 100dvh;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    padding: 0 30% 0 ;
+    min-height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30%;
 }
 
 #home h1 {
     color: var(--color-titles);
-    font-size: 20px;
-    height: 35px;
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
 }
 
 #home p {
-    color:white;
-    font-size: 40px;
-    text-align:start;
+    color: var(--color-white);
+    font-size: 2.5rem;
 }
 
-/* conjunto de selectores donde está la seccion proyectos con sus cards */
-
+/* =============================================
+   SECCIÓN PROYECTOS
+   ============================================= */
 #projects {
     background-color: var(--color-projects);
     text-align: center;
-    height: 100dvh;
+    min-height: 100dvh;
+    padding-bottom: var(--spacing-lg);
 }
 
 #projects h2 {
     color: var(--color-titles);
-    font-size: 100px;
+    font-size: clamp(2.5rem, 8vw, 6.25rem);
     padding: 3%;
 }
 
-#projects p {
-    color: white;
-    padding: 0% 0% 5% 0%;
-    font-size: 35px;
-    text-align:center;
+#projects > p {
+    color: var(--color-white);
+    padding-bottom: 5%;
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
 }
 
+/* ===== CARDS ===== */
 .contenedor-cards {
-    display: grid;
+    display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
-    grid-auto-flow: column;
     justify-content: center;
-    align-items:stretch;
+    align-items: stretch;
 }
 
 .card {
     background: var(--color-home);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
     overflow: hidden;
     width: 300px;
     max-width: 350px;
+    transition: transform var(--transition-card);
+}
+
+.card:hover {
+    transform: translateY(-10px);
 }
 
 .card img {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Evita que la imagen se estire feo */
+    object-fit: cover;
 }
 
 .contenido-card {
-    color: #fcfcfc;
-    padding: clamp(15px, 3vw, 25px); 
+    color: var(--color-white);
+    padding: clamp(15px, 3vw, 25px);
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .contenido-card h3 {
-    font-size: xx-large;
+    font-size: 1.5rem;
 }
 
-
 .contenido-card button {
-    background-color: #d1d1d1;
+    background-color: var(--color-btn-bg);
     border: none;
-    padding: 0px 10px;
+    padding: 0 10px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     cursor: pointer;
     margin-top: 20px;
-    transition: all ease-in 0.2s;
+    transition: background-color var(--transition-fast);
+}
+
+.contenido-card button:hover {
+    background-color: var(--color-white);
 }
 
 .contenido-card button a {
     text-decoration: none;
-    font-size: larger;
+    font-size: 1.1rem;
     font-weight: 600;
     color: rgb(19, 19, 19);
 }
 
-.contenido-card button:hover {
-    background-color: #fcfcfc;
-}
-
-.card {
-  transition: transform 0.4s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px); /* Se eleva un poquito al pasar el mouse */
-}
-
-/* ===== FOOTER ===== */
+/* =============================================
+   FOOTER — PORTFOLIO
+   ============================================= */
 #footer-portfolio {
-  background-color:var(--color-home);
-  color: #ccc;
-  padding: 48px 60px 0 60px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: space-between;
-  border-top: 1px solid #333;
+    background-color: var(--color-home);
+    color: var(--color-muted);
+    padding: 48px var(--spacing-xl) 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    justify-content: space-between;
+    border-top: 1px solid var(--color-border);
 }
 
-/* ===== SECCIÓN IZQUIERDA ===== */
+/* ===== Sección izquierda ===== */
 footer section:first-of-type {
-  max-width: 320px;
+    max-width: 320px;
 }
 
 footer section:first-of-type h2 {
-  color: #f0ead6;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 10px 0;
+    color: var(--color-light);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 footer section:first-of-type p {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: #f0ad4e;
-  margin: 0 0 16px 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #f0ad4e;
+    margin-bottom: var(--spacing-sm);
 }
 
 footer section:first-of-type nav {
-  display: flex;
-  gap: 16px;
+    display: flex;
+    gap: var(--spacing-sm);
 }
 
 footer section:first-of-type nav a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 0.875rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--transition-fast);
 }
 
 footer section:first-of-type nav a:hover {
-  color: #fff;
+    color: var(--color-white);
 }
 
-/* ===== SECCIÓN DERECHA (FORMULARIO) ===== */
+/* ===== Formulario de contacto ===== */
 #contact_me {
-  min-width: 280px;
-  max-width: 340px;
-  flex: 1;
+    min-width: 280px;
+    max-width: 340px;
+    flex: 1;
 }
 
 #contact_me h2 {
-  color: #f0ead6;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 14px 0;
+    color: var(--color-light);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 14px;
 }
 
 #contact_me form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #contact_me label {
-  display: none; /* Labels ocultos visualmente como en el diseño */
+    display: none;
+}
+
+#contact_me input,
+#contact_me button {
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    transition: border-color var(--transition-fast),
+                background-color var(--transition-fast);
+    outline: none;
 }
 
 #contact_me input {
-  background-color: transparent;
-  border: 1px solid #555;
-  border-radius: 6px;
-  color: #aaa;
-  padding: 10px 14px;
-  font-size: 0.875rem;
-  outline: none;
-  transition: border-color 0.2s;
+    background-color: transparent;
+    border: 1px solid #555;
+    color: #aaa;
 }
 
 #contact_me input::placeholder {
-  color: #666;
+    color: #666;
 }
 
-/* Usa el atributo placeholder en el HTML para "Tu nombre" y "Tu correo electrónico" */
-
 #contact_me input:focus {
-  border-color: #888;
+    border-color: #888;
 }
 
 #contact_me button {
-  background-color: transparent;
-  border: 1px solid #555;
-  border-radius: 6px;
-  color: #f0ead6;
-  padding: 10px 14px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s;
+    background-color: transparent;
+    border: 1px solid #555;
+    color: var(--color-light);
+    cursor: pointer;
 }
 
 #contact_me button:hover {
-  background-color: #333;
-  border-color: #888;
+    background-color: #333;
+    border-color: #888;
 }
 
-/* ===== COPYRIGHT ===== */
+/* ===== Copyright ===== */
 .footer-copy {
-  width: 100%;
-  text-align: center;
-  border-top: 1px solid #333;
-  padding: 16px 0;
-  margin-top: 8px;
-  display: block;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-sm) 0;
+    margin-top: var(--spacing-xs);
+    display: block;
 }
 
 .footer-copy p {
-  color: #666;
-  font-size: 0.8rem;
-  margin: 0;
+    color: #666;
+    font-size: 0.8rem;
 }
 
-/* CSS para el archivo "pets" */
-
+/* =============================================
+   HEADER — MASCOTAS
+   ============================================= */
 #header-mascotas {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  background-color:crimson;
-  align-items: center;
-  padding: 0px 10%;
-  position: fixed;
-  color: white;
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-pets-header);
+    z-index: 10;
+    padding: 0 10%;
+    color: var(--color-white);
 }
 
 #ul-mascotas {
-  list-style: none;
-  display: flex;
-  gap: 25px;
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
 #ul-mascotas li a {
-  font-weight: 600;
-  text-decoration: none;
-  align-items: end;
-  color: white;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-white);
+    transition: opacity var(--transition-fast);
 }
 
+#ul-mascotas li a:hover {
+    opacity: 0.75;
+}
+
+/* =============================================
+   HOME — MASCOTAS
+   ============================================= */
 #home-mascotas {
-  /* background-image: url(/assets/fondo.jpg); */
-  background-color:bisque;
-  display: flex;
-  height: 100dvh;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content:center;
-  padding: 0 30% 0 ;
+    background-color: var(--color-pets-home);
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+    gap: var(--spacing-md);
 }
 
-#home-mascotas h1{
-  font-size: 80px;
-  margin: 0 0 30%;
-  height: 35px;
+#home-mascotas h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
 }
 
 #home-mascotas p {
-  font-size: 35px;
-  text-align:center;
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
+    text-align: center;
 }
 
+/* =============================================
+   SECCIÓN PETS
+   ============================================= */
 #pets {
-  background-color:burlywood;
-  display: grid;
-  height: 100%;
+    background-color: var(--color-pets-section);
+    min-height: 100%;
 }
 
-#titulo-mascotas{
-  font-size: 100px;
-  text-align: center;
-  padding: 5% 0 5%;
+#titulo-mascotas {
+    font-size: clamp(2.5rem, 8vw, 6.25rem);
+    text-align: center;
+    padding: 5% 0;
 }
 
 .contenedor-cards-mascotas {
-  display: flex;          /* Activa el modo flexible */
-  flex-wrap: wrap;        /* Permite que bajen si no caben */
-  gap: 30px;              /* Espacio entre las cards */
-  justify-content: center; /* Centra las cards en la fila */
-  padding: 0 20% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 0 20% 5%;
 }
 
 .card-mascota {
     background: var(--color-home);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(255, 0, 0);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-pets);
     overflow: hidden;
     width: 300px;
     max-width: 350px;
+    transition: transform var(--transition-card);
+}
+
+.card-mascota:hover {
+    transform: translateY(-10px);
 }
 
 .card-mascota img {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Evita que la imagen se estire feo */
+    object-fit: cover;
 }
 
 .contenido-card-mascota {
-    color: #fcfcfc;
-    padding: clamp(15px, 3vw, 25px); 
+    color: var(--color-white);
+    padding: clamp(15px, 3vw, 25px);
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .contenido-card-mascota h2 {
-    font-size: xx-large;
+    font-size: 1.5rem;
 }
 
-.card-mascota {
-  transition: transform 0.4s ease;
-}
-
-.card-mascota:hover {
-  transform: translateY(-10px); /* Se eleva un poquito al pasar el mouse */
-}
-
+/* =============================================
+   FOOTER — MASCOTAS
+   ============================================= */
 #footer-mascota {
-  background-color: burlywood;
-  text-align: center;
-  padding: 0 0 10px 0;
+    background-color: var(--color-pets-section);
+    text-align: center;
+    padding: 0 0 10px;
+}
+
+/* =============================================
+   MEDIA QUERIES
+   ============================================= */
+
+/* --- Tablets: 768px – 1024px --- */
+@media (max-width: 1024px) {
+    #home {
+        padding: 0 15%;
+    }
+
+    #home-mascotas {
+        padding: 0 15%;
+    }
+
+    .contenedor-cards-mascotas {
+        padding: 0 10% 5%;
+    }
+
+    #footer-portfolio {
+        padding: 40px var(--spacing-md) 0;
+        gap: var(--spacing-md);
+    }
+}
+
+/* --- Móviles grandes: hasta 768px --- */
+@media (max-width: 768px) {
+    #header-portfolio,
+    #header-mascotas {
+        padding: 0 5%;
+        flex-direction: column;
+        height: auto;
+        padding-block: 12px;
+        gap: var(--spacing-xs);
+        position: relative; /* Evita superposición en pantallas pequeñas */
+    }
+
+    #ul-portfolio,
+    #ul-mascotas {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #home,
+    #home-mascotas {
+        padding: 0 8%;
+        text-align: center;
+    }
+
+    #home p {
+        font-size: 2rem;
+    }
+
+    .contenedor-cards,
+    .contenedor-cards-mascotas {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .card,
+    .card-mascota {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #footer-portfolio {
+        padding: var(--spacing-md);
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer section:first-of-type,
+    #contact_me {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* --- Móviles pequeños: hasta 480px --- */
+@media (max-width: 480px) {
+    #home h1 {
+        font-size: 1rem;
+    }
+
+    #home p {
+        font-size: 1.5rem;
+    }
+
+    #home-mascotas h1 {
+        font-size: 2rem;
+    }
+
+    #home-mascotas p {
+        font-size: 1.1rem;
+    }
+
+    .contenido-card h3,
+    .contenido-card-mascota h2 {
+        font-size: 1.2rem;
+    }
+
+    #ul-portfolio,
+    #ul-mascotas {
+        gap: 10px;
+    }
+
+    .contenedor-cards-mascotas {
+        padding: 0 5% 5%;
+    }
 }
