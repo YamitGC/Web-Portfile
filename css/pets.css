@@ -1,0 +1,120 @@
+/* =============================================
+   HEADER — MASCOTAS
+   ============================================= */
+#header-mascotas {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-pets-header);
+    z-index: 10;
+    padding: 0 10%;
+    color: var(--color-white);
+}
+
+#ul-mascotas {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+#ul-mascotas li a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-white);
+    transition: opacity var(--transition-fast);
+}
+
+#ul-mascotas li a:hover {
+    opacity: 0.75;
+}
+
+/* =============================================
+   HOME — MASCOTAS
+   ============================================= */
+#home-mascotas {
+    background-color: var(--color-pets-home);
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+    gap: var(--spacing-md);
+}
+
+#home-mascotas h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+#home-mascotas p {
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
+    text-align: center;
+}
+
+/* =============================================
+   SECCIÓN PETS
+   ============================================= */
+#pets {
+    background-color: var(--color-pets-section);
+    min-height: 100%;
+}
+
+#titulo-mascotas {
+    font-size: clamp(2.5rem, 8vw, 6.25rem);
+    text-align: center;
+    padding: 5% 0;
+}
+
+.contenedor-cards-mascotas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 0 20% 5%;
+}
+
+.card-mascota {
+    background: var(--color-home);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-pets);
+    overflow: hidden;
+    width: 300px;
+    max-width: 350px;
+    transition: transform var(--transition-card);
+}
+
+.card-mascota:hover {
+    transform: translateY(-10px);
+}
+
+.card-mascota img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.contenido-card-mascota {
+    color: var(--color-white);
+    padding: clamp(15px, 3vw, 25px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contenido-card-mascota h2 {
+    font-size: 1.5rem;
+}
+
+/* =============================================
+   FOOTER — MASCOTAS
+   ============================================= */
+#footer-mascota {
+    background-color: var(--color-pets-section);
+    text-align: center;
+    padding: 0 0 10px;
+}

@@ -1,0 +1,41 @@
+:root {
+    /* Colores — portfolio */
+    --color-home: #212121;
+    --color-projects: #272727;
+    --color-titles: #858585;
+    --color-white: #fcfcfc;
+    --color-light: #f0ead6;
+    --color-muted: #ccc;
+    --color-border: #333;
+    --color-btn-bg: #d1d1d1;
+
+    /* Colores — mascotas */
+    --color-pets-header: crimson;
+    --color-pets-home: bisque;
+    --color-pets-section: burlywood;
+
+    /* Tipografía */
+    --font-base: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    /* Espaciado */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+
+    /* Radios */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+
+    /* Sombras */
+    --shadow-card: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-pets: 0 4px 8px rgb(255, 0, 0);
+
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-card: 0.4s ease;
+
+    /* Header */
+    --header-height: 60px;
+}
